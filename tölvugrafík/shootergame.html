@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooter Game</title>
+    <link rel="stylesheet" href="shootergame.css">
+</head>
+<body>
+    <div class="scoreBoard">
+        <h3 id="Stigatafla">Stig</h3>
+        <p id="stig">Fuglar: </p>
+    </div>
+    <div class="canvas-container">
+        <canvas id="gl-canvas" width="1000" height="600"></canvas>
+    </div>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    attribute vec4 vColor;
+    varying vec4 fColor;
+
+    void main() {
+        gl_Position = vPosition;
+        fColor = vColor;
+    }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    varying vec4 fColor;
+    void main() {
+        gl_FragColor = fColor;
+    }
+    </script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="shootergame.js"></script>
+</body>
+</html>
